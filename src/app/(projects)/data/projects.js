@@ -15,7 +15,7 @@ const data = {
   bestProjects: [
     {
       id: 1,
-      title: "truefeedback()",
+      title: "Truefeedbacks",
       description:
         "A truly anonymus platform where you can share your thoughts with other users.and ai suggest message also",
       url: "https://truefeedbacks.netlify.app/",
@@ -49,6 +49,36 @@ const data = {
 
     {
       id: 2,
+      title: "PlayTube (YOUTUBE + TWITTER)",
+      description:
+        "Developed a video hosting and micro-blogging platform using Node.js, Express.js, React.js, and MongoDB. ",
+      url: "https://frontend-playtube.vercel.app/",
+      imgSrc: backend,
+
+      skills: [
+        {
+          id: 1,
+          name: "NodeJS",
+          image: "",
+        },
+
+        
+        {
+          id: 2,
+          name: "ExpressJS",
+          image: "",
+        },
+
+        {
+          id: 3,
+          name: "React Js",
+          image: "",
+        },
+      ],
+    },
+
+    {
+      id: 3,
       title: "Your Vlogs ",
       description:
         "An Vlog sharing application where you can share your vlogs with everyone .",
@@ -71,36 +101,7 @@ const data = {
       ],
     },
 
-    {
-      id: 3,
-      title: "backend",
-      description:
-        "Developed a Backend Application with NodeJS, ExpressJS & MongoDB which have all the CRUD operations,tweets,likes,coments and more.",
-      url: "https://github.com/RupakGhosh4865/playtube",
-      imgSrc: backend,
-
-      skills: [
-        {
-          id: 1,
-          name: "NodeJS",
-          image: "",
-        },
-
-        
-        {
-          id: 2,
-          name: "ExpressJS",
-          image: "",
-        },
-
-        {
-          id: 3,
-          name: "MongoDB",
-          image: "",
-        },
-      ],
-    },
-
+    
     {
       id: 4,
       title: "Your-todo app",

@@ -87,7 +87,7 @@ export const StickyScroll = ({
                 }}
                 className="text-[14px] font-bold text-blue-500 py-2"
               >
-                <Link href={item.link} target="_blank">View Certificate !</Link>
+                <Link href={ item.link} target="_blank">View Certificate !</Link>
               </motion.h2>
               <motion.p
                 initial={{

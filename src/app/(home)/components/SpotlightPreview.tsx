@@ -10,7 +10,7 @@ import Link from "next/link";
 export function SpotlightPreview() {
   const words = ["Coder", "Programmer", "Developer", "Creator"];
   const intro =
-    "✨ As someone who is always passionate for learning more about tech and life. Ever since been a self taught software developer also unstopped learner. I have evolved into a Full Stack Javascript career path, and loves working with cutting edge tools and technologies🚀.";
+    "✨ A passionate self - taught software developer and lifelong learner, I specialize in Full Stack JavaScript development and love working with cutting - edge tools and technologies🚀"
 
   return (
     <div className="h-[50rem] w-full dark:bg-black bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
