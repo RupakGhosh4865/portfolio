@@ -93,7 +93,7 @@ export function SpotlightPreview() {
           </Link>
 
           <Link
-            href="https://drive.google.com/file/d/1j0A7AzuLT2Y6NrpxRTqSYYaT1C_AKqU5/view"
+            href="https://drive.google.com/file/d/1z7gHRFowFZxJVynX0_2js_kvJkhSVdgq/view?usp=sharing"
             target="_blank"
             className="text-sm font-mono text-slate-888 hover:text-primary flex items-center gap-2 transition-colors group"
           >
