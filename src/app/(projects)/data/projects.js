@@ -63,7 +63,7 @@ const data = {
       title: "ONEBOX EMAIL APP",
       description: "Production-ready email aggregator with real-time IMAP sync, Elasticsearch indexing, and AI-based classification.",
       url: "https://github.com/RupakGhosh4865",
-      imgSrc: "/Images/backend.png",
+      imgSrc: "/project-thumbnails/onebox.png",
       type: "BACKEND SYSTEM",
       skills: [
         { name: "Node.js" }, { name: "TypeScript" }, { name: "Elasticsearch" }, { name: "Docker" }
