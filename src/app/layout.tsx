@@ -1,12 +1,36 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { 
+  Space_Grotesk, 
+  Syne, 
+  Inter, 
+  JetBrains_Mono 
+} from "next/font/google";
 import "./globals.css";
 import { cn } from "@/utils/cn";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import { Analytics } from "@vercel/analytics/next";
+import { CustomCursor } from "@/components/CustomCursor";
 
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
+const spaceGrotesk = Space_Grotesk({ 
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-syne",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+});
 
 export const metadata: Metadata = {
   title: "| RUPAK GHOSH |",
@@ -29,7 +53,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn(spaceGrotesk.className, "bg-black text-white")}>
+      <body className={cn(
+        spaceGrotesk.variable,
+        syne.variable,
+        inter.variable,
+        jetbrainsMono.variable,
+        "bg-black text-white font-body selection:bg-primary/30 selection:text-primary"
+      )}>
+        <CustomCursor />
         <Navbar />
         {children}
         <Footer />

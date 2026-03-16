@@ -14,23 +14,43 @@ export function CardHoverEffectDemo() {
 }
 export const projects = [
   {
-    title: "Languages :",
-    description: "JavaScript,C++,Python,C Language ,TypeScript, SQL",
+    title: "Core AI/ML :",
+    description: "PyTorch | Transformers | OpenAI API | Google Gemini | LangChain | RAG | langraph | orchestration",
   },
   {
-    title: "Frontend Technology :",
-    description: " Next-JS, HTML, CSS, ReactJS, Tailwind CSS",
+    title: "AI Libraries :",
+    description: "Hugging Face | NumPy | Pandas | Scikit-learn | Matplotlib",
   },
   {
-    title: "Libraries / Frameworks :",
-    description: "Bootstrap, MUI, AceternityUI, NextUI, Framer Motion",
+    title: "Vector Databases :",
+    description: "ChromaDB | FAISS | Redis | ElasticSearch | PrismaDB",
   },
   {
-    title: "Backend Technology :",
-    description: "NodeJS, ExpressJS, MongoDB, REST API, SQL, APPWRITE, Next-Auth",
+    title: "LLM Tools :",
+    description: "Prompt Engineering | Fine-tuning | Embeddings | SentenceTransformers",
   },
   {
-    title: "Other Tools / Techonolgy",
-    description: "Git, GitHUB, VS Code, Vercel, Netlify,SQLite, Work bench, Docker",
+    title: "Programming :",
+    description: "Python | SQL | JavaScript | TypeScript | C++",
+  },
+  {
+    title: "Frameworks :",
+    description: "Next.js | React | FastAPI | Flask | Streamlit | Tailwind CSS",
+  },
+  {
+    title: "Cloud & Infra :",
+    description: "Docker | AWS (EC2/S3) | n8n | Hugging Face Spaces",
+  },
+  {
+    title: "Tools :",
+    description: "Git | GitHub | Postman | VSCode | Cursor | V0.dev | GoogleColab | Bubble.io",
+  },
+  {
+    title: "Concepts :",
+    description: "Deep Learning (CNN) | Computer Vision | Data Structures and Algorithms | Object Oriented Programming Concepts | OS | DBMS | DAA",
+  },
+  {
+    title: "Soft Skills :",
+    description: "Leadership | Ability to work in a team | Public Speaking | Time Management",
   },
 ];

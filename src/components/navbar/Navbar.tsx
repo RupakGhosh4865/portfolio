@@ -1,88 +1,93 @@
+"use client";
+
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 import { HoverBorderGradient } from "../ui/hover-border-gradient";
-import { SparklesCore } from "../ui/sparkles";
+import { cn } from "@/utils/cn";
+
+const NAV_ITEMS = [
+  { name: "HOME", href: "/" },
+  { name: "ABOUT", href: "/about" },
+  { name: "PROJECTS", href: "/projects" },
+  { name: "CONTACT", href: "/contact" },
+];
 
 const Navbar = () => {
+  const pathname = usePathname();
+  const [hoveredPath, setHoveredPath] = useState(pathname);
+
   return (
-    <div>
-      <header className="text-gray-300 font-medium bg-gray-900 dark:bg-gray-900/35 body-font fixed top-0 w-full shadow-md z-50 dark:backdrop-filter dark:backdrop-blur-lg dark:bg-opacity-30">
-        <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-          <nav className="flex lg:w-2/5 flex-wrap justify-center items-center text-base md:ml-auto ">
-            <Link href={"/"} className="mr-6 hover:text-white">
-              HOME
-            </Link>
-
-            <Link href={"/about"} className="mr-6 hover:text-white">
-              ABOUT
-            </Link>
-            <Link href={"/projects"} className="mr-6 hover:text-white">
-              PROJECT
-            </Link>
-            <Link href={"/contact"} className=" hover:text-white">
-              CONTACT
-            </Link>
-          </nav>
-          <a className="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-white lg:items-center lg:justify-center mb-4 md:mb-0">
-            <span className="ml-3 text-xl xl:block lg:hidden">
-              <h1 className="font-bold text-xl tracking-widest text-center text-white relative z-20">
-                JavaScriptor.
-              </h1>
-              <div className="relative">
-                {/* Gradients */}
-                <div className="absolute inset-x-10 top-0 bg-gradient-to-r from-transparent via-green-500 to-transparent h-[2px] w-3/4 blur-sm" />
-                <div className="absolute inset-x-10 top-0 bg-gradient-to-r from-transparent via-green-500 to-transparent h-px w-3/4" />
-                <div className="absolute inset-x-25 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-3/4 blur-sm" />
-                <div className="absolute inset-x-25 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-3/4" />
-              </div>
-              <SparklesCore
-                background="transparent"
-                minSize={0.4}
-                maxSize={1}
-                particleDensity={1600}
-                className="w-18 h-3"
-                particleColor="#FFFFFF"
-              />
+    <header className="fixed top-0 w-full z-50 px-6 py-4">
+      <div className="max-w-7xl mx-auto">
+        <nav className="glass rounded-full px-6 py-3 flex items-center justify-between border-t border-t-primary/30 relative">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2">
+            <span className="font-mono text-primary text-sm tracking-tighter sm:text-base">
+              think code and repeat
             </span>
-          </a>
+          </Link>
 
-          {/* resume button  */}
+          {/* Navigation Items */}
+          <div className="hidden md:flex items-center gap-1 relative">
+            {NAV_ITEMS.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onMouseEnter={() => setHoveredPath(item.href)}
+                onMouseLeave={() => setHoveredPath(pathname)}
+                className={cn(
+                  "relative px-4 py-2 text-xs font-mono transition-colors duration-300",
+                  pathname === item.href ? "text-white" : "text-slate-888 hover:text-white"
+                )}
+              >
+                {item.name}
+                {hoveredPath === item.href && (
+                  <motion.div
+                    layoutId="nav-indicator"
+                    className="absolute bottom-0 left-0 right-0 h-px bg-primary shadow-[0_0_10px_rgba(0,255,240,0.8)]"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                  />
+                )}
+              </Link>
+            ))}
+          </div>
 
-          <div className="lg:w-2/5 mt-4 sm:mt-0 inline-flex lg:justify-end ml-5 lg:ml-0">
+          {/* Resume Button */}
+          <div className="flex items-center gap-4">
             <Link
               target="_blank"
-              href={
-                "https://drive.google.com/file/d/1j0A7AzuLT2Y6NrpxRTqSYYaT1C_AKqU5/view"
-              }
+              href="https://drive.google.com/file/d/1j0A7AzuLT2Y6NrpxRTqSYYaT1C_AKqU5/view"
             >
               <HoverBorderGradient
                 containerClassName="rounded-full"
                 as="button"
-                className="dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2"
+                className="bg-black text-white flex items-center space-x-2 text-xs font-mono px-4 py-2 hover:shadow-[0_0_20px_rgba(0,255,240,0.3)] transition-shadow"
               >
-                <div className="flex justify-center items-center gap-1">
-                  <span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="size-5"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M15.75 2.25H21a.75.75 0 0 1 .75.75v5.25a.75.75 0 0 1-1.5 0V4.81L8.03 17.03a.75.75 0 0 1-1.06-1.06L19.19 3.75h-3.44a.75.75 0 0 1 0-1.5Zm-10.5 4.5a1.5 1.5 0 0 0-1.5 1.5v10.5a1.5 1.5 0 0 0 1.5 1.5h10.5a1.5 1.5 0 0 0 1.5-1.5V10.5a.75.75 0 0 1 1.5 0v8.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V8.25a3 3 0 0 1 3-3h8.25a.75.75 0 0 1 0 1.5H5.25Z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                  <span>RESUME</span>
-                </div>
+                <span className="flex items-center gap-2">
+                  VIEW RESUME
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="w-3 h-3"
+                  >
+                    <path d="M7 17l9.2-9.2M17 17V7H7" />
+                  </svg>
+                </span>
               </HoverBorderGradient>
             </Link>
           </div>
-        </div>
-      </header>
-    </div>
+        </nav>
+      </div>
+    </header>
   );
 };
 

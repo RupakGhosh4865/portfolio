@@ -26,8 +26,27 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        background: "#000000",
+        "background-depth": "#050510",
+        primary: "#00FFF0",
+        secondary: "#7B2FFF",
+        tertiary: "#FF2D78",
+        slate: {
+          888: "#8892A4",
+        },
+      },
+      fontFamily: {
+        heading: ["var(--font-space-grotesk)", "sans-serif"],
+        subheading: ["var(--font-syne)", "sans-serif"],
+        body: ["var(--font-inter)", "sans-serif"],
+        mono: ["var(--font-jetbrains-mono)", "monospace"],
+        display: ["var(--font-clash-display)", "sans-serif"],
+      },
       animation: {
         spotlight: "spotlight 2s ease .75s 1 forwards",
+        "gradient-shift": "gradient-shift 8s linear infinite",
+        glitch: "glitch 1s linear infinite",
       },
       keyframes: {
         spotlight: {
@@ -39,6 +58,18 @@ const config: Config = {
             opacity: "1",
             transform: "translate(-50%,-40%) scale(1)",
           },
+        },
+        "gradient-shift": {
+          "0%, 100%": { "background-position": "0% 50%" },
+          "50%": { "background-position": "100% 50%" },
+        },
+        glitch: {
+          "0%": { transform: "translate(0)" },
+          "20%": { transform: "translate(-2px, 2px)" },
+          "40%": { transform: "translate(-2px, -2px)" },
+          "60%": { transform: "translate(2px, 2px)" },
+          "80%": { transform: "translate(2px, -2px)" },
+          "100%": { transform: "translate(0)" },
         },
       },
 

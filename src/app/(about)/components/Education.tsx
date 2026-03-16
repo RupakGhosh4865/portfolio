@@ -1,69 +1,82 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import { MdEngineering } from "react-icons/md";
-import { FaUserPlus } from "react-icons/fa";
-import { FaUser } from "react-icons/fa";
+import { FaUserPlus, FaUser } from "react-icons/fa";
+
+const EDUCATION_DATA = [
+  {
+    icon: <MdEngineering className="w-6 h-6" />,
+    degree: "Bachelor Of Engineering in Computer Science and Engineering",
+    institution: "Institute of Engineering and Technology, Lucknow",
+    duration: "2021 - 2025",
+    grade: "7.5 CGPA",
+  },
+  {
+    icon: <FaUserPlus className="w-5 h-5" />,
+    degree: "12th Standard",
+    institution: "Kendriya Vidyalaya Kunjaban No.1 Agartala",
+    duration: "2019 - 2021",
+    grade: "83 %",
+  },
+  {
+    icon: <FaUser className="w-5 h-5" />,
+    degree: "10th Standard",
+    institution: "Kendriya Vidyalaya Kunjaban No.1 Agartala",
+    duration: "2018 - 2019",
+    grade: "86.3 %",
+  },
+];
 
 const Education = () => {
   return (
-    <div>
-      <section className="text-gray-400 rounded-xl bg-gray-900 body-font sm:mx-28">
-        <div className="container px-5 py-12 mx-auto">
-          <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
-            <div className="p-4 md:w-1/3 flex">
-              <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-4 flex-shrink-0">
-                <MdEngineering className="h-7 w-7" />
-              </div>
-              <div className="flex-grow pl-6">
-                <h2 className="text-white text-xl title-font font-medium mb-3 tracking-wider">
-                  Bachelor Of Engineering in Computer Science and Engineering
-                </h2>
-                <div>
-                  <p>Institute of Engineering and Technology, Lucknow</p>
-                  <p className="mt-2">2021 - 2025</p>
-                  <h3 className="mt-3 text-lg font-medium text-white tracking-wider">
-                    8.23 CGPA
-                  </h3>
+    <div className="w-full max-w-6xl mx-auto px-4">
+      <div className="glass rounded-[2rem] p-8 md:p-12 border-primary/20 glow-border relative overflow-hidden">
+        {/* Subtle background glow */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-[100px] rounded-full -mr-32 -mt-32" />
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
+          {EDUCATION_DATA.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="flex gap-6 group"
+            >
+              {/* Icon Container */}
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 rounded-full glass border border-primary/30 flex items-center justify-center text-primary/80 group-hover:text-primary group-hover:glow-border transition-all duration-300">
+                  {item.icon}
                 </div>
               </div>
-            </div>
-            <div className="p-4 md:w-1/3 flex">
-              <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-4 flex-shrink-0">
-                <FaUserPlus className="h-6 w-6" />
-              </div>
-              <div className="flex-grow pl-6">
-                <h2 className="text-white text-xl title-font font-medium mb-3 tracking-wider">
-                  12th Standard
-                </h2>
-                <div>
-                  <p>Kendriya Vidyalaya Kunjaban No.1 Agartala</p>
-                  <p className="mt-2">2019 - 2021</p>
-                  <h3 className="mt-3 text-lg font-medium text-white tracking-wider">
-                    83 %
-                  </h3>
+
+              {/* Text Content */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-heading font-bold text-white leading-snug group-hover:text-primary transition-colors">
+                  {item.degree}
+                </h3>
+                
+                <div className="space-y-1">
+                  <p className="text-sm font-body text-white/60 leading-relaxed">
+                    {item.institution}
+                  </p>
+                  <p className="text-xs font-mono text-white/30 uppercase tracking-widest">
+                    {item.duration}
+                  </p>
+                </div>
+
+                <div className="pt-2">
+                  <span className="text-xl font-bold text-white tracking-tight">
+                    {item.grade}
+                  </span>
                 </div>
               </div>
-            </div>
-            <div className="p-4 md:w-1/3 flex">
-              <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mb-4 flex-shrink-0">
-                <FaUser className="h-6 w-6" />
-              </div>
-              <div className="flex-grow pl-6">
-                <h2 className="text-white text-xl title-font font-medium mb-3 tracking-wider">
-                  10th Standard
-                </h2>
-                <div>
-                  <p>Kendriya Vidyalaya Kunjaban No.1 Agartala</p>
-                  <p className="mt-2">2018 - 2019</p>
-                  <h3 className="mt-3 text-lg font-medium text-white tracking-wider">
-                    86.3 %
-                  </h3>
-                </div>
-              </div>
-            </div>
-          </div>
+            </motion.div>
+          ))}
         </div>
-      </section>
+      </div>
     </div>
   );
 };
