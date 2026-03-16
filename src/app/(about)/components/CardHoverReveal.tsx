@@ -35,7 +35,7 @@ export const CardHoverReveal = () => {
       {EXPERTISE_DATA.map((item, idx) => (
         <CardContainer key={idx} className="inter-var">
           <CardBody className={cn(
-            "relative group/card hover:shadow-2xl transition-all duration-300 w-full sm:w-[30rem] h-auto rounded-3xl p-8 glass border-t-2",
+            "relative group/card hover:shadow-2xl transition-all duration-300 w-full max-w-[30rem] h-auto rounded-3xl p-8 glass border-t-2",
             item.color === "primary" ? "border-t-primary/50" : 
             item.color === "secondary" ? "border-t-secondary/50" : 
             "border-t-tertiary/50",

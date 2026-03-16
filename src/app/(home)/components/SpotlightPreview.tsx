@@ -55,7 +55,7 @@ export function SpotlightPreview() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-7xl lg:text-9xl font-bold text-center font-display tracking-tighter leading-none"
+            className="text-5xl sm:text-7xl lg:text-9xl font-bold text-center font-display tracking-tighter leading-none"
           >
             I&apos;m{" "}
             <span className="text-gradient inline-block group-hover:animate-glitch">

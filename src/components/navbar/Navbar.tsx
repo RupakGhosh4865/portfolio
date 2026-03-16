@@ -3,8 +3,9 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { HoverBorderGradient } from "../ui/hover-border-gradient";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/utils/cn";
 
 const NAV_ITEMS = [
@@ -17,6 +18,9 @@ const NAV_ITEMS = [
 const Navbar = () => {
   const pathname = usePathname();
   const [hoveredPath, setHoveredPath] = useState(pathname);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
     <header className="fixed top-0 w-full z-50 px-6 py-4">
@@ -56,8 +60,8 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Resume Button */}
-          <div className="flex items-center gap-4">
+          {/* Resume Button - Desktop */}
+          <div className="hidden md:flex items-center gap-4">
             <Link
               target="_blank"
               href="https://drive.google.com/file/d/1z7gHRFowFZxJVynX0_2js_kvJkhSVdgq/view?usp=sharing"
@@ -85,7 +89,63 @@ const Navbar = () => {
               </HoverBorderGradient>
             </Link>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2 text-white/70 hover:text-primary transition-colors"
+            onClick={toggleMobileMenu}
+            aria-label="Toggle Menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </nav>
+
+        {/* Mobile Navigation Overlay */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="md:hidden absolute top-full left-6 right-6 mt-4 p-6 glass rounded-3xl border border-white/10 z-40 flex flex-col gap-4"
+            >
+              {NAV_ITEMS.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={cn(
+                    "font-mono text-sm tracking-widest py-2 transition-colors",
+                    pathname === item.href ? "text-primary" : "text-white/70"
+                  )}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <div className="h-px bg-white/10 my-2" />
+              <Link
+                target="_blank"
+                href="https://drive.google.com/file/d/1z7gHRFowFZxJVynX0_2js_kvJkhSVdgq/view?usp=sharing"
+                className="flex items-center justify-between font-mono text-sm text-primary"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                VIEW RESUME
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-4 h-4"
+                >
+                  <path d="M7 17l9.2-9.2M17 17V7H7" />
+                </svg>
+              </Link>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );
