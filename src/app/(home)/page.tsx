@@ -1,6 +1,7 @@
 "use client"
 import { useEffect } from "react";
 import { SpotlightPreview } from "./components/SpotlightPreview";
+import { SuperhumanWidget } from "./components/SuperhumanWidget";
 
 export default function Home() {
   useEffect(() => {
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <SpotlightPreview />
+      <SuperhumanWidget />
     </div>
   );
 }
