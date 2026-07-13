@@ -14,14 +14,15 @@ import Script from "next/script";
 export function SuperhumanWidget() {
   return (
     <Script
-      src="https://savant-ai-production.up.railway.app/sdk/superhuman-widget.js?v=3"
+      src="https://savant-ai-production.up.railway.app/sdk/superhuman-widget.js?v=4"
       strategy="afterInteractive"
       data-tenant="f9c4f00cfec94f028f47b10d1c6d152f"
       data-mode="free-tier"
       data-persona="default"
+      data-theme="sspm"
       data-contact="https://sspmconsultants.com/contact"
       data-label="Talk to our expert"
-      data-color="#8b5cf6"
+      data-color="#007ace"
       data-api="https://savant-ai-production.up.railway.app"
     />
   );
