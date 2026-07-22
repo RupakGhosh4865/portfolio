@@ -14,7 +14,7 @@ import Script from "next/script";
 export function SuperhumanWidget() {
   return (
     <Script
-      src="https://savant-ai-production.up.railway.app/sdk/superhuman-widget.js?v=4"
+      src="https://savant-ai-production.up.railway.app/sdk/superhuman-widget.js?v=5"
       strategy="afterInteractive"
       data-tenant="f9c4f00cfec94f028f47b10d1c6d152f"
       data-mode="free-tier"
